@@ -9,4 +9,8 @@ google-cloud-storage
 kfp
 # Filesystem spec for GCS access by pandas
 fsspec
-gcsfs          
+gcsfs  
+# Streamlit for web app
+streamlit
+# Python dotenv for environment variable management
+python-dotenv

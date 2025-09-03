@@ -1,5 +1,14 @@
 from google.adk.agents import Agent
 from typing import Literal
+# import os
+# from dotenv import load_dotenv
+
+# load_dotenv()
+
+# # --- Konfigurasi Lingkungan ---
+# os.environ["GOOGLE_CLOUD_PROJECT"] = os.getenv("GOOGLE_CLOUD_PROJECT", "eikon-dev-ai-team")
+# os.environ["GOOGLE_CLOUD_LOCATION"] = os.getenv("GOOGLE_CLOUD_LOCATION", "us-central1")
+# os.environ["GOOGLE_GENAI_USE_VERTEXAI"] = os.getenv("GOOGLE_GENAI_USE_VERTEXAI", "TRUE")
 
 def rekomendasi_asuransi_kesehatan(
     perlindungan_untuk: Literal["individu", "keluarga"],
@@ -18,16 +27,16 @@ def rekomendasi_asuransi_kesehatan(
     rekomendasi = []
     if butuh_perlindungan_penyakit_kritis:
         rekomendasi.append({
-            "nama_produk": "Sequis Q Early Payout Critical Illness Plus Rider",
+            "nama_produk": "Aether Medishield Pro Rider",
             "deskripsi": "Memberikan perlindungan menyeluruh hingga 120 kondisi penyakit kritis sejak tahap awal."
         })
     else:
         rekomendasi.append({
-            "nama_produk": "Sequis Q Infinite Medcare Shield Rider",
+            "nama_produk": "Aether Health Guardian (Plan X Booster)",
             "deskripsi": "Menawarkan perlindungan kesehatan premium dengan limit tahunan hingga Rp90 Miliar."
         })
         rekomendasi.append({
-            "nama_produk": "Sequis Health Protection",
+            "nama_produk": "Aether Health Protect",
             "deskripsi": "Memberikan manfaat rawat inap dan pembedahan. Cocok untuk perlindungan dasar."
         })
 
@@ -56,11 +65,11 @@ def rekomendasi_asuransi_pendidikan(usia_anak: int, jenjang_pendidikan: Literal[
 
     rekomendasi = [
         {
-            "nama_produk": "Sequis EduPlan Insurance",
+            "nama_produk": "Aether EduPlan Insurance",
             "deskripsi": f"Produk ini memberikan fleksibilitas masa asuransi dan memiliki nilai tunai yang dapat digunakan untuk dana pendidikan jenjang {jenjang_pendidikan}."
         },
         {
-            "nama_produk": "Asuransi Sequis EduPlan",
+            "nama_produk": "Aether Scholar Plan",
             "deskripsi": "Dengan premi terjangkau, produk ini memberikan manfaat dana pendidikan yang pasti untuk masa depan anak Anda."
         }
     ]
@@ -90,7 +99,7 @@ def rekomendasi_dana_pensiun(usia_saat_ini: int, usia_pensiun: int) -> dict:
     return {
         "status": "sukses",
         "rekomendasi": {
-            "nama_produk": "Sequis Q Heritage Income Protector",
+            "nama_produk": "Aether Heritage Income Protector",
             "deskripsi": f"Produk ini memberikan perlindungan seumur hidup dan manfaat dana pensiun yang bisa mulai dicairkan pada usia {usia_pensiun} untuk menjamin masa tua yang sejahtera."
         }
     }
@@ -109,7 +118,7 @@ def rekomendasi_asuransi_investasi(profil_risiko: Literal["konservatif", "modera
     return {
         "status": "sukses",
         "rekomendasi": {
-            "nama_produk": "SequislinQ Path Protector",
+            "nama_produk": "AetherlinQ Path Protector",
             "deskripsi": f"Produk ini menggabungkan manfaat asuransi jiwa dengan investasi. Untuk profil risiko {profil_risiko}, Anda dapat memilih alokasi dana yang sesuai untuk memaksimalkan potensi imbal hasil sambil tetap terlindungi."
         }
     }
@@ -118,10 +127,10 @@ def rekomendasi_asuransi_investasi(profil_risiko: Literal["konservatif", "modera
 
 root_agent = Agent(
     name="agen_rekomendasi_asuransi",
-    model="gemini-1.5-flash",
-    description="Agen yang membantu memberikan rekomendasi produk asuransi Sequis berdasarkan kebutuhan nasabah.",
+    model="gemini-2.5-flash",
+    description="Agen yang membantu memberikan rekomendasi produk Aether Insurance berdasarkan kebutuhan nasabah.",
     instruction=(
-        "Anda adalah asisten asuransi virtual dari Sequis. "
+        "Anda adalah asisten asuransi virtual dari Aether Insurance. "
         "Tugas Anda adalah memahami kebutuhan pengguna dan merekomendasikan produk asuransi yang paling sesuai. "
         "Gunakan tools yang tersedia untuk memberikan rekomendasi berdasarkan informasi yang diberikan pengguna. "
         "Selalu sapa pengguna dengan ramah dan berikan penjelasan yang jelas."
