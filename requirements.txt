@@ -1,15 +1,6 @@
-pandas
-scikit-learn
-numpy
-joblib
 # Google Cloud & Vertex AI Libraries
+google-adk
 google-cloud-aiplatform
-google-cloud-storage
-# Kubeflow Pipelines (KFP)
-kfp
-# Filesystem spec for GCS access by pandas
-fsspec
-gcsfs  
 # Streamlit for web app
 streamlit
 # Python dotenv for environment variable management
